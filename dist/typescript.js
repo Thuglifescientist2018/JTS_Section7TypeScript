@@ -1,5 +1,6 @@
-var sum = function (a, b) {
+"use strict";
+const sum = (a, b) => {
     return a + b;
 };
-var answer = sum('hello', 5);
-console.log({ answer: answer });
+const answer = sum(5, 5);
+console.log({ answer });

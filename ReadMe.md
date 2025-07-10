@@ -24,3 +24,6 @@ Use a tsconfig.json with `"outDir": "./dist"` and run tsc (without file argument
   ]
 }
 ```
+
+##### if gitignore doesnt ignore
+`git rm -r --cached dist`

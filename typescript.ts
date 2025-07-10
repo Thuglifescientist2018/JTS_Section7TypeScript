@@ -24,3 +24,13 @@ wizard = Object; // only re-assignable to an object but not anything else
 // null and undefined
 let meh: undefined = undefined; // first 'undefined' is typescript type and = undefined is javascript's actual undefined and same for below
 let noo: null = null; 
+
+// 224. TypeScript 4
+// Tuple
+let basket: [string, number];
+basket = ['basket', 5] // type order matters to the corresponding source.
+
+// Enum
+enum Size { Small = 1, Medium = 2, Large = 3}
+let sizeName: string = Size[3] // if we want to access the Key then it should be a string type in typescript then the provide number to access that Key string for a given number
+let sizeName2: number = Size.Large // If we want to access the value of the key then access using dot(.) and we should get it's number in this case

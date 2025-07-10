@@ -12,3 +12,4 @@ let favoriteQuote: string = `I'm not old I am only the ${age}`
 
 //Array
 let pets: string[] = ['cat', 'dog', 'pig']
+let pets2: Array<string> = ['lion', 'dragon', 'lizard']

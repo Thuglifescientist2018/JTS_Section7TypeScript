@@ -20,3 +20,7 @@ let wizard: object =  {
 }
 
 wizard = Object; // only re-assignable to an object but not anything else
+
+// null and undefined
+let meh: undefined = undefined; // first 'undefined' is typescript type and = undefined is javascript's actual undefined and same for below
+let noo: null = null; 

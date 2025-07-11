@@ -59,3 +59,17 @@ let sing2 = (): never => { // void because its not returning anything
     // console.log is indeed doing its work and is considered to have an endpoint that eventually ends so never, never really happened so it will give an error while void would not care about endpoint code inside, just that something in it should not be returned/ and also n():never must throw an error
     throw new Error("a must throw error")
 }
+
+//227. TypeScript 6
+//interface
+type RobotArmy =  {
+    count: number,
+    type: string,
+    magic: string
+}
+let fightRobotArmy = (robots: RobotArmy) => {
+    console.log("FIGHT!")
+}
+let fightRobotArmy2 = (robots: {count: number, type: string, magic: string}) => {
+    console.log("Fight")
+}

@@ -36,4 +36,4 @@ Use a tsconfig.json with `"outDir": "./dist"` and run tsc (without file argument
 
 ❌ They don’t exist at runtime.
 
-✅ They help large teams or big apps stay organized and bug-free.
+✅ They help large teams or big apps stay organized and bug-free. 

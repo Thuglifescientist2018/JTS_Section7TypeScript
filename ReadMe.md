@@ -27,3 +27,13 @@ Use a tsconfig.json with `"outDir": "./dist"` and run tsc (without file argument
 
 ##### if gitignore doesnt ignore
 `git rm -r --cached dist`
+
+##### 228. Resources: Type Vs Interface
+
+✅ interface and extends are only for TypeScript.
+
+🛠️ They act like blueprints to catch mistakes while writing code.
+
+❌ They don’t exist at runtime.
+
+✅ They help large teams or big apps stay organized and bug-free.

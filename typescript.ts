@@ -73,3 +73,108 @@ let fightRobotArmy = (robots: RobotArmy) => {
 let fightRobotArmy2 = (robots: {count: number, type: string, magic: string}) => {
     console.log("Fight")
 }
+
+// Self Practice
+// URL: https://medium.com/@martin_hotell/interface-vs-type-alias-in-typescript-2-7-2a8f1777af4c
+interface PointInterface {
+    x: number,
+    y: number
+}
+type PointType  = {
+    x: number,
+    y: number
+}
+const getRectangleAreaInterface = (args: PointInterface) => args.x * args.y;
+
+const getRectangleAreaAliased = (args: PointType) => args.x * args.y;
+
+getRectangleAreaInterface({x: 12,y:1 })
+getRectangleAreaAliased({x:23, y:6}) // on both interface and type: if we dont completely give all valid arguments the error is going to be the same kind.
+/* // TS Error: 
+// Interface:
+Argument of type '{ x: number; }' is not assignable to parameter of type 'PointInterface'. Property 'y' is missing in type '{ x: number; }'.
+// Type alias:
+Argument of type '{ x: number; }' is not assignable to parameter of type 'PointType'. Property 'y' is missing in type '{ x: number; }'. */
+
+// We can extend an interface with type alias:
+interface ThreeDimensions extends PointType {
+    z: number
+}
+// Or use type alias for implementing a Class constraint
+// class Rectangle implements PointType {
+//     x = 2;
+//     y = 4;
+// }
+
+// Or use interface extended by a type for implementing a Class constraint
+class RectanglePrism implements ThreeDimensions {
+    x = 2
+    y = 3
+    z = 4
+}
+
+// We can also combine both type alias and interface for implementing a Class constraint
+interface Shape {
+    area(): number
+}
+// type Perimeter = {
+//     perimiter(): number
+// }
+
+// class Rectangle implements PointType, Shape, Perimeter {
+//     x = 2
+//     y = 3
+//     area() {
+//         return this.x * this.y
+//     }
+//     perimiter() {
+//         return 2 * (this.x + this.y)
+//     }
+// }
+
+/*You can use interface or any other TypeScript valid type(which has shape of a Dictionary/JS Object, so non primitive types etc…) for type alias extension via intersection operator & */
+
+class Point {
+    x!: number
+    y!: number
+}
+interface Shape {
+    area(): number
+}
+type Perimeter = {
+    perimeter(): number
+}
+
+// type RectangleShape = Shape & Perimeter & Point
+
+// class Rectangle implements RectangleShape {
+//    x = 2
+//    y = 3
+//    area() {
+//     return this.x * this.y;
+//    }
+//    perimeter() {
+//     return 2 * (this.x + this.y)
+//    }
+// }
+/* We can also leverage mapped types for various transforms of both interface and type alias.
+
+Let’s make Shape and Perimeter optional via Partial mapped type: */
+type RectangleShape = Partial<Shape & Perimeter> & Point
+
+class PartialRectangle implements RectangleShape {
+    x = 2
+    y = 3
+}
+
+const rectangle: RectangleShape = {
+    x: 12,
+    y: 133,
+    area() {
+        return 123
+    },
+    perimeter() {
+        return 123
+    }
+}
+
